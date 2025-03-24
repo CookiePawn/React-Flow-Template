@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDnD } from './DnDContext';
  
-export default () => {
-  const [_, setType] = useDnD() as [string | null, (type: string) => void];
+const Sidebar = () => {
+  const [, setType] = useDnD() as [string | null, (type: string) => void];
  
   const onDragStart = (event: React.DragEvent<HTMLDivElement>, nodeType: string) => {
     setType(nodeType);
@@ -24,3 +24,5 @@ export default () => {
     </aside>
   );
 };
+
+export default Sidebar;

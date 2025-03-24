@@ -7,7 +7,7 @@
     "start:prod": "env-cmd -f .env.production next dev --turbopack",
     "start:local": "env-cmd -f .env.local next dev --turbopack",
     "build:dev": "env-cmd -f .env.development next build",
-    "build: prod": "env-cmd -f .env.production next build",
+    "build:prod": "env-cmd -f .env.production next build",
     "build:local": "env-cmd -f .env.local next build",
     "start": "next start",
     "lint": "next lint"

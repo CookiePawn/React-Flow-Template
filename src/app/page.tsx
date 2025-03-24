@@ -42,8 +42,8 @@ const AddNodeOnEdgeDrop = () => {
   const [type] = useDnD() as [string | null, (type: string) => void];
 
   const onConnect = useCallback(
-    (params: Connection) => setEdges((eds) => addEdge(params, eds) as any),
-    [],
+    (params: Connection) => setEdges((eds) => addEdge(params, eds) as Edge[]),
+    [setEdges],
   );
 
   const onConnectEnd: OnConnectEnd = useCallback(
@@ -66,12 +66,12 @@ const AddNodeOnEdgeDrop = () => {
         setNodes((nds) => nds.concat(newNode));
         if (connectionState.fromNode) {
           setEdges((eds) =>
-            eds.concat({ id, source: connectionState.fromNode!.id, target: id } as any),
+            eds.concat({ id, source: connectionState.fromNode!.id, target: id } as Edge),
           );
         }
       }
     },
-    [screenToFlowPosition],
+    [screenToFlowPosition, setNodes, setEdges],
   );
 
   const onDragOver = useCallback((event: React.DragEvent<HTMLDivElement>) => {
@@ -97,7 +97,7 @@ const AddNodeOnEdgeDrop = () => {
         setNodes((nds) => nds.concat(newNode));
       }
     },
-    [type, screenToFlowPosition],
+    [type, screenToFlowPosition, setNodes],
   );
 
   return (
@@ -126,10 +126,12 @@ const AddNodeOnEdgeDrop = () => {
   );
 };
 
-export default () => (
+const Home = () => (
   <ReactFlowProvider>
     <DnDProvider>
       <AddNodeOnEdgeDrop />
     </DnDProvider>
   </ReactFlowProvider>
 );
+
+export default Home;
