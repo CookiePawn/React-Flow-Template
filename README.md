@@ -1,7 +1,7 @@
-# template-react
+# React-Flow-Template
 
-## React Native React 탬플릿
-> 프로젝트명 변경 가능
+## React Flow 라이브러리 탬플릿
+> 
 
 
 
