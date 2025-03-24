@@ -13,6 +13,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@xyflow/react": "^12.4.4",
     "env-cmd": "^10.1.0",
     "next": "15.1.6",
     "react": "^19.0.0",
